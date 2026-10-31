@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!productContainer) return;
 
         try {
-            const response = await fetch('http://localhost:3000/api/items');
+            const response = await fetch('/api/items');
             const items = await response.json();
 
             productContainer.innerHTML = '';
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/place-bid', {
+            const response = await fetch('/api/place-bid', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ item_id: itemId, bidder_id: bidderId, bid_amount: bidAmount })
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const bidderId = 1;
-            const response = await fetch(`http://localhost:3000/api/bids/user/${bidderId}`);
+            const response = await fetch('/api/bids/user/${bidderId}');
             
             if (!response.ok) return;
 
